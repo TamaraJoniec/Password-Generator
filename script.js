@@ -117,7 +117,13 @@ var password = [];
      
         enter = parseInt(prompt("Choose between 10 and 64"));
 
-  }
+      } else {
+        
+        confirmnumericCharacters = confirm("Do you want numbers?");
+        confirmspecialCharacters = confirm("Do you want special characters?");
+        confirmupperCasedCharacters = confirm("Do you want capital letters?");
+        confirmlowerCasedCharacters = confirm("Do you want lowercase letters?");
+    };
 }
   
   // Get references to the #generate element
