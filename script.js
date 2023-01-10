@@ -88,6 +88,11 @@ var specialCharacters = [
     'Z'
   ];
   
+var enter;
+var confirmnumericCharacters;
+var confirmspecialCharacters;
+var confirmupperCasedCharacters;
+var confirmlowerCasedCharacters;
   // Function to prompt user for password options
   function getPasswordOptions() {
   
