@@ -135,17 +135,35 @@ var password = [];
       choices = chars.concat(integer, letter, caps);
   }
   else if (confirmspecialCharacters && confirmnumericCharacters && confirmupperCasedCharacters) {
-    choices = chars.concat(integer, caps);
-}
-else if (confirmspecialCharacters && confirmnumericCharacters && confirmlowerCasedCharacters) {
-    choices = chars.concat(integer, letter);
-}
-else if (confirmspecialCharacters && confirmlowerCasedCharacters && confirmupperCasedCharacters) {
-    choices = chars.concat(letter, caps);
-}
-else if (confirmnumericCharacters && confirmlowerCasedCharacters && confirmupperCasedCharacters) {
-    choices = integer.concat(letter, caps);
-}
+        choices = chars.concat(integer, caps);
+    }
+    else if (confirmspecialCharacters && confirmnumericCharacters && confirmlowerCasedCharacters) {
+        choices = chars.concat(integer, letter);
+    }
+    else if (confirmspecialCharacters && confirmlowerCasedCharacters && confirmupperCasedCharacters) {
+        choices = chars.concat(letter, caps);
+    }
+    else if (confirmnumericCharacters && confirmlowerCasedCharacters && confirmupperCasedCharacters) {
+        choices = integer.concat(letter, caps);
+    }
+    else if (confirmspecialCharacters && confirmnumericCharacters) {
+      choices = chars.concat(integer);
+
+  } else if (confirmspecialCharacters && confirmlowerCasedCharacters) {
+      choices = chars.concat(letter);
+
+  } else if (confirmspecialCharacters && confirmupperCasedCharacters) {
+      choices = chars.concat(caps);
+  }
+  else if (confirmlowerCasedCharacters && confirmnumericCharacters) {
+      choices = letter.concat(integer);
+
+  } else if (confirmlowerCasedCharacters && confirmupperCasedCharacters) {
+      choices = letter.concat(caps);
+
+  } else if (confirmnumericCharacters && confirmupperCasedCharacters) {
+      choices = integer.concat(caps);
+  }
 }
   
   // Get references to the #generate element
