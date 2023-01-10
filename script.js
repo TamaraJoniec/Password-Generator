@@ -124,6 +124,28 @@ var password = [];
         confirmupperCasedCharacters = confirm("Do you want capital letters?");
         confirmlowerCasedCharacters = confirm("Do you want lowercase letters?");
     };
+
+    if (!confirmspecialCharacters && !confirmnumericCharacters && !confirmupperCasedCharacters && !confirmlowerCasedCharacters) {
+      choices = alert("Choose criteria");
+
+  }
+  // 4 positive choices
+  else if (confirmspecialCharacters && confirmnumericCharacters && confirmupperCasedCharacters && confirmlowerCasedCharacters) {
+
+      choices = chars.concat(integer, letter, caps);
+  }
+  else if (confirmspecialCharacters && confirmnumericCharacters && confirmupperCasedCharacters) {
+    choices = chars.concat(integer, caps);
+}
+else if (confirmspecialCharacters && confirmnumericCharacters && confirmlowerCasedCharacters) {
+    choices = chars.concat(integer, letter);
+}
+else if (confirmspecialCharacters && confirmlowerCasedCharacters && confirmupperCasedCharacters) {
+    choices = chars.concat(letter, caps);
+}
+else if (confirmnumericCharacters && confirmlowerCasedCharacters && confirmupperCasedCharacters) {
+    choices = integer.concat(letter, caps);
+}
 }
   
   // Get references to the #generate element
