@@ -88,11 +88,15 @@ var specialCharacters = [
     'Z'
   ];
   
+// User input options: 
 var enter;
 var confirmnumericCharacters;
 var confirmspecialCharacters;
 var confirmupperCasedCharacters;
 var confirmlowerCasedCharacters;
+var choices;
+var password = [];
+
   // Function to prompt user for password options
   function getPasswordOptions() {
   
@@ -105,8 +109,16 @@ var confirmlowerCasedCharacters;
   
   // Function to generate password with user input
   function generatePassword() {
-  
+    // Asks for user input
+    enter = parseInt(prompt("Choose between 10 and 64 characters to create your password."));
+    if (!enter) {
+        alert("This needs a value");
+    } else if (enter < 10 || enter > 64) {
+     
+        enter = parseInt(prompt("Choose between 10 and 64"));
+
   }
+}
   
   // Get references to the #generate element
   var generateBtn = document.querySelector('#generate');
