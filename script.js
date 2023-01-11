@@ -135,43 +135,43 @@ function generatePassword() {
     choices = alert("Choose criteria");
   }
   else if (confirmspecialCharacters && confirmnumericCharacters && confirmupperCasedCharacters && confirmlowerCasedCharacters) {
-    choices = chars.concat(integer, letter, caps);
+    choices = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
   }
   else if (confirmspecialCharacters && confirmnumericCharacters && confirmupperCasedCharacters) {
-    choices = chars.concat(integer, caps);
+    choices = specialCharacters.concat(numericCharacters, upperCasedCharacters);
   }
   else if (confirmspecialCharacters && confirmnumericCharacters && confirmlowerCasedCharacters) {
-    choices = chars.concat(integer, letter);
+    choices = specialCharacters.concat(numericCharacters, lowerCasedCharacters);
   }
   else if (confirmspecialCharacters && confirmlowerCasedCharacters && confirmupperCasedCharacters) {
-    choices = chars.concat(letter, caps);
+    choices = specialCharacters.concat(lowerCasedCharacters, upperCasedCharacters);
   }
   else if (confirmnumericCharacters && confirmlowerCasedCharacters && confirmupperCasedCharacters) {
-    choices = integer.concat(letter, caps);
+    choices = integer.concat(lowerCasedCharacters, upperCasedCharacters);
   }
   else if (confirmspecialCharacters && confirmnumericCharacters) {
-    choices = chars.concat(integer);
+    choices = specialCharacters.concat(numericCharacters);
 
   } else if (confirmspecialCharacters && confirmlowerCasedCharacters) {
-    choices = chars.concat(letter);
+    choices = specialCharacters.concat(lowerCasedCharacters);
   } else if (confirmspecialCharacters && confirmupperCasedCharacters) {
-    choices = chars.concat(caps);
+    choices = specialCharacters.concat(upperCasedCharacters);
   }
   else if (confirmlowerCasedCharacters && confirmnumericCharacters) {
-    choices = letter.concat(integer);
+    choices = lowerCasedCharacters.concat(numericCharacters);
   } else if (confirmlowerCasedCharacters && confirmupperCasedCharacters) {
-    choices = letter.concat(caps);
+    choices = lowerCasedCharacters.concat(upperCasedCharacters);
   } else if (confirmnumericCharacters && confirmupperCasedCharacters) {
-    choices = integer.concat(caps);
+    choices = numericCharacters.concat(upperCasedCharacters);
   }
   else if (confirmspecialCharacters) {
-    choices = chars;
+    choices = specialCharacters;
   }
   else if (confirmnumericCharacters) {
-    choices = integer;
+    choices = numericCharacters;
   }
   else if (confirmlowerCasedCharacters) {
-    choices = letter;
+    choices = lowerCasedCharacters;
   }
   return password;
 }
