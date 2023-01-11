@@ -109,6 +109,7 @@ function getRandom(arr) {
       var pickChoices = choices[Math.floor(Math.random() * choices.length)];
       password.push(pickChoices);
   }
+}
 
 // Function to generate password with user input
 
@@ -122,11 +123,8 @@ function generatePassword() {
   if (!enter) {
     alert("This needs a value");
   } else if (enter < 10 || enter > 64) {
-
     enter = parseInt(prompt("Choose between 10 and 64"));
-
   } else {
-
     confirmnumericCharacters = confirm("Do you want numbers?");
     confirmspecialCharacters = confirm("Do you want special characters?");
     confirmupperCasedCharacters = confirm("Do you want capital letters?");
@@ -135,10 +133,8 @@ function generatePassword() {
 
   if (!confirmspecialCharacters && !confirmnumericCharacters && !confirmupperCasedCharacters && !confirmlowerCasedCharacters) {
     choices = alert("Choose criteria");
-
   }
   else if (confirmspecialCharacters && confirmnumericCharacters && confirmupperCasedCharacters && confirmlowerCasedCharacters) {
-
     choices = chars.concat(integer, letter, caps);
   }
   else if (confirmspecialCharacters && confirmnumericCharacters && confirmupperCasedCharacters) {
@@ -158,20 +154,16 @@ function generatePassword() {
 
   } else if (confirmspecialCharacters && confirmlowerCasedCharacters) {
     choices = chars.concat(letter);
-
   } else if (confirmspecialCharacters && confirmupperCasedCharacters) {
     choices = chars.concat(caps);
   }
   else if (confirmlowerCasedCharacters && confirmnumericCharacters) {
     choices = letter.concat(integer);
-
   } else if (confirmlowerCasedCharacters && confirmupperCasedCharacters) {
     choices = letter.concat(caps);
-
   } else if (confirmnumericCharacters && confirmupperCasedCharacters) {
     choices = integer.concat(caps);
   }
-
   else if (confirmspecialCharacters) {
     choices = chars;
   }
