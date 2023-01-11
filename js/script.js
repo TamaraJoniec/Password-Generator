@@ -134,7 +134,7 @@ function generatePassword() {
     alert("Choose criteria");
     return
   }
-
+// simplified from else if to if statements with help of T.A
   if (confirmupperCasedCharacters) {
     choices = choices.concat(upperCasedCharacters);
   }
