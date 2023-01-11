@@ -115,10 +115,10 @@ function getRandom(arr) {
 
 var choices;
 var enter;
-var password = [];
+var password = "";
 
 function generatePassword() {
-
+  password = "";
   enter = parseInt(prompt("Choose between 10 and 64 characters to create your password."));
   if (!enter) {
     alert("This needs a value");
@@ -173,6 +173,7 @@ function generatePassword() {
   else if (confirmlowerCasedCharacters) {
     choices = letter;
   }
+  return password;
 }
 
 // Get references to the #generate element
@@ -182,9 +183,9 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
-
   passwordText.value = password;
 }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
