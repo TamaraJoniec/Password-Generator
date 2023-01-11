@@ -107,11 +107,9 @@ confirmlowerCasedCharacters;
 function getRandom(arr) { 
   for (var i = 0; i < enter; i++) {
       var pickChoices = choices[Math.floor(Math.random() * choices.length)];
-      password.concat(pickChoices);
+      password = concat(pickChoices);
   }
 }
-console.log(password)
-
 // Function to generate password with user input
 
 var choices;
@@ -120,7 +118,7 @@ var password = "";
 
 function generatePassword() {
   password = "";
-  enter = parseInt(prompt("Choose between 10 and 64 characters to create your password."));
+  enter = parseInt(prompt("Choose between 10 and 64 characters to create your password.")); 
   if (!enter) {
     alert("This needs a value");
   } else if (enter < 10 || enter > 64) {
@@ -173,7 +171,7 @@ function generatePassword() {
   }
   else if (confirmlowerCasedCharacters) {
     choices = lowerCasedCharacters;
-  }
+  };
   return password;
 }
 
@@ -184,9 +182,8 @@ var generateBtn = document.querySelector('#generate');
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
-  passwordText.value = password;
+  passwordText.textContent = password;
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
