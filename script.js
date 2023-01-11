@@ -110,6 +110,7 @@ function getRandom(arr) {
       password.concat(pickChoices);
   }
 }
+console.log(password)
 
 // Function to generate password with user input
 
