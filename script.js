@@ -107,7 +107,7 @@ confirmlowerCasedCharacters;
 function getRandom(arr) { 
   for (var i = 0; i < enter; i++) {
       var pickChoices = choices[Math.floor(Math.random() * choices.length)];
-      password.push(pickChoices);
+      password.concat(pickChoices);
   }
 }
 
