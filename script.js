@@ -97,28 +97,28 @@ var confirmlowerCasedCharacters;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-confirmnumericCharacters;
-confirmspecialCharacters;
-confirmupperCasedCharacters;
-confirmlowerCasedCharacters;
+  confirmnumericCharacters;
+  confirmspecialCharacters;
+  confirmupperCasedCharacters;
+  confirmlowerCasedCharacters;
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) { 
+function getRandom(arr) {
+  var pickChoices = ""
+
   for (var i = 0; i < enter; i++) {
-      var pickChoices = choices[Math.floor(Math.random() * choices.length)];
-      password = concat(pickChoices);
+    pickChoices += arr[Math.floor(Math.random() * arr.length)];
   }
+  return (pickChoices)
 }
 // Function to generate password with user input
 
-var choices;
 var enter;
-var password = "";
 
 function generatePassword() {
-  password = "";
-  enter = parseInt(prompt("Choose between 10 and 64 characters to create your password.")); 
+  let choices = [];
+  enter = parseInt(prompt("Choose between 10 and 64 characters to create your password."));
   if (!enter) {
     alert("This needs a value");
   } else if (enter < 10 || enter > 64) {
@@ -131,50 +131,24 @@ function generatePassword() {
   };
 
   if (!confirmspecialCharacters && !confirmnumericCharacters && !confirmupperCasedCharacters && !confirmlowerCasedCharacters) {
-    choices = alert("Choose criteria");
+    alert("Choose criteria");
+    return
   }
-  else if (confirmspecialCharacters && confirmnumericCharacters && confirmupperCasedCharacters && confirmlowerCasedCharacters) {
-    choices = specialCharacters.concat(numericCharacters, lowerCasedCharacters, upperCasedCharacters);
-  }
-  else if (confirmspecialCharacters && confirmnumericCharacters && confirmupperCasedCharacters) {
-    choices = specialCharacters.concat(numericCharacters, upperCasedCharacters);
-  }
-  else if (confirmspecialCharacters && confirmnumericCharacters && confirmlowerCasedCharacters) {
-    choices = specialCharacters.concat(numericCharacters, lowerCasedCharacters);
-  }
-  else if (confirmspecialCharacters && confirmlowerCasedCharacters && confirmupperCasedCharacters) {
-    choices = specialCharacters.concat(lowerCasedCharacters, upperCasedCharacters);
-  }
-  else if (confirmnumericCharacters && confirmlowerCasedCharacters && confirmupperCasedCharacters) {
-    choices = integer.concat(lowerCasedCharacters, upperCasedCharacters);
-  }
-  else if (confirmspecialCharacters && confirmnumericCharacters) {
-    choices = specialCharacters.concat(numericCharacters);
 
-  } else if (confirmspecialCharacters && confirmlowerCasedCharacters) {
-    choices = specialCharacters.concat(lowerCasedCharacters);
-  } else if (confirmspecialCharacters && confirmupperCasedCharacters) {
-    choices = specialCharacters.concat(upperCasedCharacters);
+  if (confirmupperCasedCharacters) {
+    choices = choices.concat(upperCasedCharacters);
   }
-  else if (confirmlowerCasedCharacters && confirmnumericCharacters) {
-    choices = lowerCasedCharacters.concat(numericCharacters);
-  } else if (confirmlowerCasedCharacters && confirmupperCasedCharacters) {
-    choices = lowerCasedCharacters.concat(upperCasedCharacters);
-  } else if (confirmnumericCharacters && confirmupperCasedCharacters) {
-    choices = numericCharacters.concat(upperCasedCharacters);
+  if (confirmspecialCharacters) {
+    choices = choices.concat(specialCharacters);
   }
-  else if (confirmspecialCharacters) {
-    choices = specialCharacters;
+  if (confirmnumericCharacters) {
+    choices = choices.concat(numericCharacters)
   }
-  else if (confirmnumericCharacters) {
-    choices = numericCharacters;
-  }
-  else if (confirmlowerCasedCharacters) {
-    choices = lowerCasedCharacters;
+  if (confirmlowerCasedCharacters) {
+    choices = choices.concat(lowerCasedCharacters)
   };
-  return password;
+  return getRandom(choices);
 }
-
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
