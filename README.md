@@ -69,7 +69,7 @@ This challenge is graded based on the following criteria:
 ## Review
 
 
-* The URL of the deployed application: 
+* The URL of the deployed application: https://tamarajoniec.github.io/Password-Generator/ 
 
 ---
 
