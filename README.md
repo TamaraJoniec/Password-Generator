@@ -9,7 +9,7 @@ This week’s challenge requires me to create an application that an employee ca
 
 The following image shows the web application's appearance and functionality:
 
-![password generator demo](./assets/images/Password%20Generator%20(1).gif)
+![password generator demo](https://www.loom.com/share/4715c626f0fd43d8b45dbd3fa1ff1548?sid=75ed3534-62f4-48eb-8754-d4e566344fc4)
 
 
 
