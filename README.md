@@ -10,8 +10,7 @@ This week’s challenge requires me to create an application that an employee ca
 The following image shows the web application's appearance and functionality:
 
 ![password generator demo](./assets/images/Screenshot.png)
-![password generator demo](./assets/images/Screenshot2.png)
-![password generator demo](./assets/images/Screenshot3.png)
+
 
 
 * Generate a password when the button is clicked
