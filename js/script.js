@@ -180,7 +180,7 @@ function generatePassword() {
                 }
 
                 const password = getRandom(choices);
-                resolve(password); // Resolved the promise with the generated password
+                resolve(password);
               }); // End of lowercase letters question
             }); // End of capital letters question
           }); // End of special characters question
@@ -195,7 +195,7 @@ function generatePassword() {
 // Get references to the #generate element
 let generateBtn = document.querySelector('#generate');
 
-// Adjusted the writePassword function to handle the asynchronous behavior
+// Write password to the #password input
 function writePassword() {
   generatePassword().then(password => {
     let passwordText = document.querySelector('#password');
