@@ -117,75 +117,79 @@ function getRandom(arr) {
 let enter;
 
 function generatePassword() {
-  let choices = [];
+  return new Promise((resolve, reject) => {
+    let choices = [];
 
-  Swal.fire({
+    Swal.fire({
       title: 'Enter Password Length',
       input: 'text',
       inputPlaceholder: 'Choose between 10 and 64 characters'
-  }).then((result) => {
+    }).then((result) => {
       if (result.isConfirmed) {
-          enter = parseInt(result.value);
+        enter = parseInt(result.value);
+
+        Swal.fire({
+          title: 'Do you want numbers?',
+          showDenyButton: true,
+          confirmButtonText: 'Yes',
+          denyButtonText: 'No',
+        }).then((result) => {
+          confirmnumericCharacters = result.isConfirmed;
 
           Swal.fire({
-              title: 'Do you want numbers?',
+            title: 'Do you want special characters?',
+            showDenyButton: true,
+            confirmButtonText: 'Yes',
+            denyButtonText: 'No',
+          }).then((result) => {
+            confirmspecialCharacters = result.isConfirmed;
+
+            Swal.fire({
+              title: 'Do you want capital letters?',
               showDenyButton: true,
               confirmButtonText: 'Yes',
               denyButtonText: 'No',
-          }).then((result) => {
-              confirmnumericCharacters = result.isConfirmed;
+            }).then((result) => {
+              confirmupperCasedCharacters = result.isConfirmed;
 
               Swal.fire({
-                  title: 'Do you want special characters?',
-                  showDenyButton: true,
-                  confirmButtonText: 'Yes',
-                  denyButtonText: 'No',
+                title: 'Do you want lowercase letters?',
+                showDenyButton: true,
+                confirmButtonText: 'Yes',
+                denyButtonText: 'No',
               }).then((result) => {
-                  confirmspecialCharacters = result.isConfirmed;
+                confirmlowerCasedCharacters = result.isConfirmed;
 
-                  Swal.fire({
-                      title: 'Do you want capital letters?',
-                      showDenyButton: true,
-                      confirmButtonText: 'Yes',
-                      denyButtonText: 'No',
-                  }).then((result) => {
-                      confirmupperCasedCharacters = result.isConfirmed;
+                // After all questions
+                if (!confirmspecialCharacters && !confirmnumericCharacters && !confirmupperCasedCharacters && !confirmlowerCasedCharacters) {
+                  alert("Choose criteria");
+                  return;
+                }
 
-                      Swal.fire({
-                          title: 'Do you want lowercase letters?',
-                          showDenyButton: true,
-                          confirmButtonText: 'Yes',
-                          denyButtonText: 'No',
-                      }).then((result) => {
-                          confirmlowerCasedCharacters = result.isConfirmed;
+                if (confirmupperCasedCharacters) {
+                  choices = choices.concat(upperCasedCharacters);
+                }
+                if (confirmspecialCharacters) {
+                  choices = choices.concat(specialCharacters);
+                }
+                if (confirmnumericCharacters) {
+                  choices = choices.concat(numericCharacters);
+                }
+                if (confirmlowerCasedCharacters) {
+                  choices = choices.concat(lowerCasedCharacters);
+                }
 
-                          // After all questions
-                          if (!confirmspecialCharacters && !confirmnumericCharacters && !confirmupperCasedCharacters && !confirmlowerCasedCharacters) {
-                              alert("Choose criteria");
-                              return;
-                          }
-
-                          if (confirmupperCasedCharacters) {
-                              choices = choices.concat(upperCasedCharacters);
-                          }
-                          if (confirmspecialCharacters) {
-                              choices = choices.concat(specialCharacters);
-                          }
-                          if (confirmnumericCharacters) {
-                              choices = choices.concat(numericCharacters);
-                          }
-                          if (confirmlowerCasedCharacters) {
-                              choices = choices.concat(lowerCasedCharacters);
-                          }
-
-                          return getRandom(choices);
-                      }); // End of lowercase letters question
-                  }); // End of capital letters question
-              }); // End of special characters question
-          }); // End of numbers question
+                const password = getRandom(choices);
+                resolve(password);
+              }); // End of lowercase letters question
+            }); // End of capital letters question
+          }); // End of special characters question
+        }); // End of numbers question
       }
-  }); // End of password length question
-}
+    }); // End of password length question
+
+  })
+};
 
 
 // Get references to the #generate element
@@ -193,9 +197,10 @@ let generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  let password = generatePassword();
-  let passwordText = document.querySelector('#password');
-  passwordText.textContent = password;
+  generatePassword().then(password => {
+    let passwordText = document.querySelector('#password');
+    passwordText.textContent = password;
+  });
 }
 
 // Add event listener to generate button
