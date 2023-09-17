@@ -168,7 +168,16 @@ function generatePassword() {
       });
   });
 }
+function getRandom(choices) {
+    let password = '';
 
+    for (let i = 0; i < enter; i++) {
+        const randomIndex = Math.floor(Math.random() * choices.length);
+        password += choices[randomIndex];
+    }
+
+    return password;
+}
 // Get references to the #generate element
 let generateBtn = document.querySelector('#generate');
 
